@@ -1,0 +1,17 @@
+They all render the element invisible, yet differ in whether it occupies space and consumes clicks
+
++--------------------+----------------+-----------------+
+| Property           | occupies space | consumes clicks |
++--------------------+----------------+-----------------+
+| opacity: 0         |        ✓       |        ✓        |
++--------------------+----------------+-----------------+
+| visibility: hidden |        ✓       |        ✗        |
++--------------------+----------------+-----------------+
+| display: none      |        ✗       |        ✗        |
++--------------------+----------------+-----------------+
+
+✓: yes
+✗: no
+And when we say it consumes click, that means it also consumes other pointer events like ondblclick,onmousedown,onmousemove etc.
+
+In essence "visibility: hidden" behaves like a combination of "opacity: 0" and "pointer-events: none".

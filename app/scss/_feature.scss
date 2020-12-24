@@ -2,61 +2,58 @@
   background-color: $lightGrayishBlue;
   text-align: center;
 
-  @include breakpoint-up(medium){
+  @include breakpoint-up(medium) {
     text-align: left;
   }
 
   &__intro {
-    margin-bottom: 3.75rem;
-
-    @include breakpoint-up(large){
+    margin-bottom: 6rem;
+    @include breakpoint-up(large) {
       width: 60%;
     }
   }
-
   &__grid {
-
-    @include breakpoint-up(medium){
+    @include breakpoint-up(medium) {
       display: flex;
-      flex-wrap: wrap;     
+      flex-wrap: wrap;
     }
   }
 
   &__item {
-    padding: 0.9375rem;
+    padding: 1.5rem;
 
-    @include breakpoint-up(medium){
+    @include breakpoint-down(medium) {
       flex: 0 0 50%;
     }
 
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
       flex: 1;
     }
   }
 
   &__icon {
-    margin-bottom: 1.875rem;
+    margin-bottom: 3rem;
 
-    @include breakpoint-up(large){
-      margin-bottom: 2.75rem;
-    }    
+    @include breakpoint-up(large) {
+      margin-bottom: 4.4rem;
+    }
   }
 
   &__title {
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 300;
     line-height: 1.15;
     color: $darkBlue;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
 
-    @include breakpoint-up(large){
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+    @include breakpoint-up(large) {
+      font-size: 2.4rem;
+      margin-bottom: 2.4rem;
     }
   }
 
   &__description {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     line-height: 1.5;
   }
 }

@@ -1,26 +1,20 @@
-html {
-  font-size: 100%;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+html {
+  font-size: 62.5%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Public Sans', sans-serif;
-  font-size: $font-sm;
-  font-weight: 300;
-  color: $grayishBlue;
   line-height: 1.3;
-  min-height: 350vh;
+  font-family: "Public Sans", sans-serif;
+  color: $grayishBlue;
+  font-size: $font-med;
+  font-weight: 300;
   overflow-x: hidden;
-
-  @include breakpoint-up(large){
-    font-size: $font-med;
-  }
 
   &.noscroll {
     overflow: hidden;
@@ -28,123 +22,119 @@ body {
 }
 
 // Text
-h1, h2, h3 {
+h1,
+h2,
+h3 {
+  margin-top: 0rem;
   font-weight: 300;
   line-height: 1.15;
   color: $darkBlue;
-  margin-top: 0px;
 }
 
 h1 {
-  font-size: 2.31rem;
-  margin-bottom: 1.5rem;
+  font-size: 3.7rem;
+  margin-bottom: 2.4rem;
 
-  @include breakpoint-up(large){
+  @include breakpoint-up(large) {
     font-size: $font-xlg;
   }
 }
 
 h2 {
-  font-size: 1.875rem;
-  margin-bottom: 1.5625rem;
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
 
-  @include breakpoint-up(large){
-    font-size: 2.25rem;
-    margin-bottom: 2.25rem;
-  }  
+  @include breakpoint-up(large) {
+    font-size: 3.6rem;
+    margin-bottom: 3.6rem;
+  }
 }
 
 p {
   line-height: 1.5;
-  margin-bottom: 2.25rem;
+  margin-bottom: 3.6rem;
 }
 
-a, a:visited, a:hover {
+a,
+a:visited,
+a:hover {
   text-decoration: none;
 }
 
-// Spacing
+//Spacing
 .container {
-  max-width: 69.375rem;
+  max-width: 139.9rem;
   margin: 0 auto;
 
   &--pall {
-    padding-top: 4.375rem;
-    padding-right: 1.5rem;
-    padding-bottom: 4.375rem;
-    padding-left: 1.5rem;
+    padding-top: 7rem;
+    padding-right: 2.4rem;
+    padding-bottom: 7rem;
+    padding-left: 2.4rem;
 
-    @include breakpoint-up(large){
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+    @include breakpoint-up(large) {
+      padding-top: 9.6rem;
+      padding-bottom: 9.6rem;
     }
   }
+
   &--py {
-    padding-top: 4.375rem;
-    padding-bottom: 4.375rem;
-    
-    @include breakpoint-up(large){
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    @include breakpoint-up(large) {
+      padding-top: 9.6rem;
+      padding-bottom: 9.6rem;
     }
   }
   &--px {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 2.4rem;
+    padding-left: 2.4rem;
   }
   &--pt {
-    padding-top: 4.375rem;
-    
-    @include breakpoint-up(large){
-      padding-top: 6rem;
+    padding-top: 7rem;
+    @include breakpoint-up(large) {
+      padding-top: 9.6rem;
     }
   }
   &--pr {
-    padding-right: 1.5rem;
+    padding-right: 2.4rem;
   }
   &--pb {
-    padding-bottom: 4.375rem;
-    
-    @include breakpoint-up(large){
-      padding-bottom: 6rem;
+    padding-bottom: 7rem;
+    @include breakpoint-up(large) {
+      padding-bottom: 9.6rem;
     }
   }
   &--pl {
-    padding-left: 1.5rem;
+    padding-left: 2.4rem;
   }
 }
 
 // Flexbox
-.flex {
+@mixin flex($justify, $align) {
   display: flex;
-
-  &-jc-sb {
-    justify-content: space-between;
-  }
-  
-  &-jc-c {
-    justify-content: center;
-  }
-  
-  &-ai-c {
-    align-items: center;
-  }
+  justify-content: $justify;
+  align-items: $align;
+  // flex-direction: $direction;
 }
 
-// Buttons
-button, .button {
+//Buttons
+button,
+.button {
   position: relative;
   display: inline-block;
-  padding: 0.875rem 2.1875rem;
+  padding: 1.4rem 3.5rem;
   background-image: linear-gradient(to right, $limeGreen, $brightCyan);
-  border: 0;
-  border-radius: 50px;
+  border-radius: 5rem;
   cursor: pointer;
+  border: none;
   color: $white;
-  font-weight: 400;  
-  font-size: $font-sm;  
+  font-weight: 400;
+  font-size: $font-sm;
+  color: $white;
   transition: opacity 300ms ease-in-out;
-  overflow: hidden;
+
+  // Video part 7 - min 57.49
 
   &::before {
     content: "";
@@ -154,6 +144,7 @@ button, .button {
     bottom: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5rem;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
   }
@@ -161,18 +152,19 @@ button, .button {
   &:hover::before {
     opacity: 1;
   }
-
 }
 
 // Visibility
 .hide-for-mobile {
-  @include breakpoint-down(medium){
+  //hide for tablet and mobile
+  @include breakpoint-down(medium) {
     display: none;
   }
 }
 
 .hide-for-desktop {
-  @include breakpoint-up(large){
+  // hide for desktop viewports widths
+  @include breakpoint-up(large) {
     display: none;
   }
 }
